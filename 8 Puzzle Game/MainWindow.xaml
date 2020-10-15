@@ -1,0 +1,90 @@
+﻿<Window x:Class="_8_Puzzle_Game.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_8_Puzzle_Game"
+        mc:Ignorable="d"
+        Title="8 Puzzle Game" Height="650" Width="1000"
+        Icon="Icons\puzzle.ico" ResizeMode="CanMinimize" Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid Name="leftGrid" Width="600" HorizontalAlignment="Left">
+            <Button Name="addButton" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left" 
+                    Style="{StaticResource templateButton}"
+                    Margin="30"
+                    Click="AddButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons\add.ico"></Image>
+                    <Label Content="Add"></Label>
+                </StackPanel>
+            </Button>
+
+            <Button Name="saveButton" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource templateButton}"
+                Margin="30" Click="SaveButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons\save.ico"></Image>
+                    <Label Content="Save"></Label>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="loadButton" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Style="{StaticResource templateButton}"
+                    Margin="30" Click="LoadButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons\load.ico"></Image>
+                    <Label Content="Load"></Label>
+                </StackPanel>
+            </Button>
+
+            <Canvas Name="boardCanvas" 
+                    Margin="30 110 30 30"
+                    Height="479"
+                    Width="540"/>
+
+        </Grid>
+        <Line X1="598" Y1="110" X2="598" Y2="580" Stroke="Black" StrokeThickness="10" StrokeStartLineCap="Round"
+              StrokeEndLineCap="Round"></Line>
+        <Grid Name="rightGrid" Width="390" HorizontalAlignment="Right" Margin="0 110 0 0">
+            <Image Name="originalImage" Height="230" Width="330" VerticalAlignment="Top"></Image>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Name="imgClock" Source="Icons\clock.ico" Height="24" Width="24"></Image>
+                <Label Name="realTimer" Content="03:00" FontSize="24" FontWeight="Bold"></Label>
+            </StackPanel>
+
+            <Grid VerticalAlignment="Bottom" Height="230" Width="230">
+                <Button Name="leftButton" Style="{StaticResource moveButton}" HorizontalAlignment="Left" Click="LeftButton_Click">
+                    <Image Source="Icons\left.ico"></Image>
+                </Button>
+
+                <Button Name="rightButton" Style="{StaticResource moveButton}" HorizontalAlignment="Right" Click="RightButton_Click">
+                    <Image Source="Icons\right.ico"></Image>
+                </Button>
+
+                <Button Name="upButton" Style="{StaticResource moveButton}" VerticalAlignment="Top" Click="UpButton_Click">
+                    <Image Source="Icons\up.ico"></Image>
+                </Button>
+
+                <Button Name="downButton" Style="{StaticResource moveButton}" VerticalAlignment="Bottom" Click="DownButton_Click">
+                    <Image Source="Icons\down.ico"></Image>
+                </Button>
+
+                <Button Name="playButton" 
+                        Style="{StaticResource moveButton}"
+                        Width="80"
+                        Height="80"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        Click="PlayButton_Click"
+                        Tag="play">
+                    <Image Name="playImage" Source="Icons\play.ico"></Image>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window> 
